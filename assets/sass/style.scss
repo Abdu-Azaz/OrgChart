@@ -1,0 +1,57 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #eee;
+
+  a {
+    text-decoration: none;
+    font-size: $navlinkSize;
+    font-weight: 700;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      list-style-type: none;
+      //   padding-left: $paddingNavLink;
+      padding: 15px;
+
+      a {
+        text-decoration: none;
+        font-size: $navlinkSize;
+        position: relative;
+        padding-bottom: 2px;
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0; /* Start with zero width */
+          height: 2px;
+          background-color: blue;
+          transition: width 0.3s ease; /* Add a transition for width */
+        }
+      }
+
+      &:hover a::after {
+        width: 100%; /* Expand the width on hover */
+      }
+    }
+    li:hover {
+        cursor:pointer;
+      background-color: #8987ec2f;
+    }
+  }
+}
