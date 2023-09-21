@@ -224,7 +224,7 @@
         // OrgChart.templates.myTemplate.field_0 = '<rect x="10" y="80" rx="2" ry="2" height="20" width="157" stroke-width="2" fill="#039BE5" stroke="#039BE5">{val}</rect>'
         OrgChart.templates.myTemplate.field_1 = '<text data-width="200" data-text-overflow="multiline-2-ellipsis" style="font-size: 13px;" fill="#039BE5" x="90" y="55" text-anchor="middle">{val}</text>';
         let id = 1;
-        var chart = new OrgChart(document.getElementById("tree3"), {  
+        var chart3 = new OrgChart(document.getElementById("tree3"), {  
             nodeMenu: isAuth ? {
                 add: {
                     text: "Create.."
@@ -242,10 +242,10 @@
             },
         });
 
-        chart.editUI.on('show', function(sender) {
+        chart3.editUI.on('show', function(sender) {
             return isAuth
         });
-        chart.on('add', function(sender, node) {
+        chart3.on('add', function(sender, node) {
             
             node.name = prompt("Name: ")
             node.title = prompt("Title: ")
@@ -266,7 +266,7 @@
             sender.draw()  
             return false;
         });
-        chart.on('remove', function(sender, nodeId) {
+        chart3.on('remove', function(sender, nodeId) {
             var u = "{{ url('/deleteNode') }}"
             console.log(nodeId);
             $.ajax({
@@ -284,7 +284,7 @@
             });
             return false;
         });
-        chart.load([{id:'doyen', name:'Ali Rachidi', title:'Doyen'}]);
+        chart3.load([{id:'doyen', name:'Ali Rachidi', title:'Doyen'}]);
     </script>
 </body>
 
